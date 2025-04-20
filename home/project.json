@@ -11,6 +11,12 @@
       },
       "dependsOn": ["typecheck"]
     },
+    "preview":{ 
+      "options": {
+        "port": 4301
+      },
+      "dependsOn": ["typecheck"]
+    },
     "build": {
       "dependsOn": ["^build", "typecheck"]
     }

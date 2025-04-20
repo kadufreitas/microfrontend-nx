@@ -1,6 +1,5 @@
 import * as React from 'react';
-import NxWelcome from './nx-welcome';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 const Home = React.lazy(() => import('home/Module'));
 const Call = React.lazy(() => import('call/Module'));
@@ -8,7 +7,7 @@ const Call = React.lazy(() => import('call/Module'));
 export function App() {
   return (
     <React.Suspense fallback={null}>
-      <ul>
+      {/* <ul>
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -18,11 +17,19 @@ export function App() {
         <li>
           <Link to="/call">Call</Link>
         </li>
-      </ul>
+      </ul> */}
       <Routes>
-        <Route path="/" element={<NxWelcome title="shell" />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/call" element={<Call />} />
+        <Route
+          path="/"
+          element={
+            <div>
+              <Home />
+              <Call />
+            </div>
+          }
+        />
+        {/* <Route path="/home" element={<Home />} />
+        <Route path="/call" element={<Call />} /> */}
       </Routes>
     </React.Suspense>
   );
